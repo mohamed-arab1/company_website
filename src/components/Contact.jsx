@@ -9,7 +9,7 @@ export default function Contact() {
   const onSubmit = (data) => console.log(data)
 
   return (
-    <section className='bg-[#002f69] text-[#f5f4f4] py-14 min-h-[100vh]'>
+    <section id='contact' className='bg-[#002f69] text-[#f5f4f4] py-14 min-h-[100vh]'>
       <section className='container mx-auto '>
       <article className='flex  justify-center gap-20 flex-wrap pb-2 '>
         <div className="">
