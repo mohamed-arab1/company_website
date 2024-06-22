@@ -5,3 +5,8 @@
 *{
   scroll-behavior: smooth;
 }
+
+.btn:hover{
+  background-color: #e3d8d8;
+  color: #1e6dc9;
+}
