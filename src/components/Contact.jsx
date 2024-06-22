@@ -4,9 +4,21 @@ import { FaFacebook,FaInstagram,FaTwitter} from "react-icons/fa";
 import Button from '../elements/Button';
 import Input from '../elements/Input';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
+
+const URL = 'http://localhost:3001/contact'
 export default function Contact() {
   const { register,handleSubmit,  formState: { errors } } = useForm()
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = async(data) => {
+    try{
+      const res = await axios.post(URL, data)
+      console.log(res.data)
+      //  for V1,...trying only
+      alert("Form Submitted Successfully")
+    }catch (error){
+        console.error('Request error:', error.request)
+    }
+  }
 
   return (
     <section id='contact' className='bg-[#002f69] text-[#f5f4f4] pt-20 pb-10 min-h-[100vh]'>
@@ -43,13 +55,13 @@ export default function Contact() {
 
             <label>Comments:</label>
             <textarea
-              {...register('comments', { required: 'Comments are required',minLength:{value:10, message:"Must be 10 letters at least"} })}
+              {...register('message', { required: 'Comments are required',minLength:{value:10, message:"Must be 10 letters at least"} })}
               cols="30"
               rows="5"
               className='rounded-2xl p-2 text-[#002f69]'
               placeholder="Enter your Comments here..."
             ></textarea>
-             {errors.comments && <p className="text-red-500">{errors.comments.message}</p>}
+             {errors.comments && <p className="text-red-500">{errors.message.message}</p>}
             <Button type="submit">Submit</Button>
           </form>
       </article>

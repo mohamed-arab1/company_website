@@ -15,10 +15,10 @@ export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
   return (
     <section className=' text-[#002f69] bg-[#f5f4f4] w-full fixed pt-0 '>
-      <section className='container mx-auto min-h-12 px-2 flex-col sm:flex-row flex items-center justify-between'>
+      <section className='container mx-auto min-h-12 px-2 flex-col sm:flex-row flex items-center justify-between transition-all duration-700'>
         {/* Responsive Menu */}
       {menuOpen && (
-        <section className="absolute top-32 pb-10  sm:top-16 w-full md:hidden flex flex-col sm:flex-row gap-3 justify-center items-center bg-[#002f69] ">
+        <section className="absolute top-32 left-0 pb-2 sm:top-16 w-full md:hidden flex flex-col sm:flex-row gap-3 justify-center items-center bg-[#f5f4f4]  ">
           {Links.map(({ id, link, href }) => (
             <Link to={href} key={id} className="hover:text-[#0087ff] " onClick={() => setMenuOpen(false)} >
               {link}
@@ -44,7 +44,7 @@ export default function Navbar() {
          <Link to="/book-service" className='animate-bounce hover:text-[#0087ff]'>
          <Button>Book a service</Button> 
           </Link>
-          <RxHamburgerMenu size={30} className='block md:hidden cursor-pointer z-10 mt-48 sm:mt-0'  onClick={() => setMenuOpen(!menuOpen)}/>
+          <RxHamburgerMenu size={30} className={`${menuOpen && "mt-48"} block md:hidden cursor-pointer z-10  sm:mt-0  `}  onClick={() => setMenuOpen(!menuOpen)}/>
       </section>
     </section>
   )
