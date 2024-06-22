@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import Button from '../elements/Button'
 import { Link } from 'react-router-dom'
 import { FaRegUserCircle } from "react-icons/fa";
