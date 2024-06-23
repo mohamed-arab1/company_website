@@ -4,26 +4,17 @@ import { FaFacebook,FaInstagram,FaTwitter} from "react-icons/fa";
 import Button from '../elements/Button';
 import Input from '../elements/Input';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { onSubmit } from '../api/contactApi';
 
-const URL = 'http://localhost:3001/contact'
 export default function Contact() {
   const { register,handleSubmit,  formState: { errors } } = useForm()
-  const onSubmit = async(data) => {
-    try{
-      const res = await axios.post(URL, data)
-      console.log(res.data)
-      //  for V1,...trying only
-      alert("Form Submitted Successfully")
-    }catch (error){
-        console.error('Request error:', error.request)
-    }
-  }
 
   return (
     <section id='contact' className='bg-[#002f69] text-[#f5f4f4] pt-20 pb-10 min-h-[100vh]'>
       <section className='container mx-auto '>
-      <article className='flex  justify-center gap-20 flex-wrap pb-2 '>
+      <article className='flex justify-center gap-20 flex-wrap pb-2 '>
         <div className="">
           <div className="flex items-center gap-3">
             <img src={logo} alt=""  />
@@ -31,39 +22,36 @@ export default function Contact() {
           </div>
           <img src={contactSection}  width={556} height={518}  alt=""className='pt-3' />
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col justify-center px-3 gap-3 text-[18px] '>
+        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col justify-center px-3  text-[18px] '>
             <div className="flex flex-wrap items-center gap-2">
-              <Input label="First Name:" register={register} required="First name is required" type="text"
+              <Input  style='sm:w-fit focus:bg-gray-200 ' register={register} required="First name is required" type="text"
                minLength={{ value: 3, message: "Last name must be at least 3 characters" }} name="firstName" placeholder="Enter your first-name" />
-               {/*  to show error in small screens under the input */}
               <div className='block sm:hidden'>{errors.firstName && <p className="text-red-500">{errors.firstName.message}</p>}</div>
-              <Input label="Last Name:" register={register} required="Last name is required" type="text"
+              
+              <Input style='sm:w-fit focus:bg-gray-200' register={register} required="Last name is required" type="text"
                minLength={{ value: 3, message: "Last name must be at least 3 characters" }} name="lastName" placeholder="Enter your last-name"/>
             </div>
             <div className="flex justify-between">
-             {/*  to show error in desktop screens under the input */}
                   <div className='hidden sm:block'>{errors.firstName && <p className="text-red-500">{errors.firstName.message}</p>}</div>
                   <div className=''>{errors.lastName && <p className="text-red-500">{errors.lastName.message}</p>}</div>
             </div>
-            <Input label="E-mail:" colStyle  register={register} required="E-mail is required" type="email"
+            <Input style='focus:bg-gray-200' register={register} required="E-mail is required" type="email"
             name="email" placeholder="Enter your Email"
              pattern={{ value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
             message: "Enter a valid email Ex:(email@example.com)"
             }}
             />
             {errors.email && <p className="text-red-500">{errors.email.message}</p>}
-
-            <label>Comments:</label>
             <textarea
               {...register('message', { required: 'Comments are required',minLength:{value:10, message:"Must be 10 letters at least"} })}
               cols="30"
               rows="5"
-              className='rounded-2xl p-2 text-[#002f69]'
+              className='outline-none focus:bg-gray-200 rounded-2xl p-2 text-[#002f69]'
               placeholder="Enter your Comments here..."
             ></textarea>
-             {errors.comments && <p className="text-red-500">{errors.message.message}</p>}
-            <Button type="submit">Submit</Button>
-          </form>
+             {errors.message && <p className="text-red-500">{errors.message.message}</p>}
+            <Button type="Submit">Submit</Button>
+             </form>
       </article>
       <article className="flex flex-wrap lg:gap-36 justify-start px-2 sm:px-0 sm:justify-center">
         <div className="flex flex-col gap-5">
@@ -89,6 +77,14 @@ export default function Contact() {
           </div>
         </article>
       </section>
+      <ToastContainer 
+        autoClose={1000} 
+        closeOnClick 
+        rtl={false} 
+        pauseOnFocusLoss 
+        draggable 
+        pauseOnHover
+        className='text-white '/>
     </section>
   )
 }

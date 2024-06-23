@@ -1,4 +1,4 @@
-import  { useState } from 'react'
+import  {  useState } from 'react'
 import Button from '../elements/Button'
 import { Link } from 'react-router-dom'
 import { FaRegUserCircle } from "react-icons/fa";
@@ -13,10 +13,10 @@ export default function Navbar() {
       { id: 6, link: "Why Us", href: "/#whyUs" },
     ];
     const [menuOpen, setMenuOpen] = useState(false);
+   
   return (
     <section className=' text-[#002f69] bg-[#f5f4f4] w-full fixed pt-0 '>
       <section className='container mx-auto min-h-12 px-2 flex-col sm:flex-row flex items-center justify-between transition-all duration-700'>
-        {/* Responsive Menu */}
       {menuOpen && (
         <section className="absolute top-32 left-0 pb-2 sm:top-16 w-full md:hidden flex flex-col sm:flex-row gap-3 justify-center items-center bg-[#f5f4f4]  ">
           {Links.map(({ id, link, href }) => (
@@ -27,20 +27,20 @@ export default function Navbar() {
         </section>
       )}
       <div className="">
-        <Button>
+        <Button style=''>        
         <FaRegUserCircle size={25} />
           <Link to="/login">Login</Link>
         </Button>
       </div>
-      <div className="hidden md:flex flex-col sm:flex-row  items-center gap-3">
+      <div className="hidden md:flex flex-col sm:flex-row  items-center gap-10">
       {Links.map(({ id, link, href }) => (
             <Link to="/" key={id} onClick={() => window.location.replace(href)} className='hover:text-[#0087ff]
-            border-transparent hover:border-b-2 hover:border-white'>
+            border-transparent hover:border-b-2 hover:border-[#002f69]'>
               {link}
             </Link>
           ))}
+      
          </div>
-          
          <Link to="/book-service" className='animate-bounce hover:text-[#0087ff]'>
          <Button>Book a service</Button> 
           </Link>
