@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -10,11 +10,7 @@ import Login from "./pages/Login";
 import  BookService  from "./pages/BookService";
 import Registration from "./pages/Registration";
 import Layout from "./components/Layout";
-=======
-import Features from "./components/Features"
-import Numbers from "./components/Numbers"
-import Services from "./components/Services"
->>>>>>> Stashed changes
+
 
 function App() {
 
@@ -32,17 +28,11 @@ function App() {
   )
 
   return (
-<<<<<<< Updated upstream
+
     <div>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </div>
-=======
-    <>
-    <Features/>
-    <Services/>
-    <Numbers/>
-    </>
->>>>>>> Stashed changes
+
   )
 }
 
