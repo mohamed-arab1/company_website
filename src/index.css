@@ -5,3 +5,48 @@
 *{
   scroll-behavior: smooth;
 }
+.btn:hover{
+  background-color: #e3d8d8;
+  color: #1e6dc9;
+}
+@layer base {
+    /* ////////////////////////services part//////////////// */
+    .servicesimg{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 280px;
+    }
+    @media (min-width:727px) {
+        .first{
+            height: 400px;
+        }
+        .secound{
+            height: 450px;
+        }
+        .third{
+            height: 500px;
+        }
+    }
+    @media (max-width:728px) {
+        .first,.secound,.third{
+            height: 400px;
+        }
+    }
+
+    /* //////////////////number part///////////////////////// */
+    .sky{
+        background-color:theme('colors.main');
+        color: white;
+    }
+    .white{
+        background-color:white;
+        color: theme('colors.alter');
+    }
+    .blue{
+        background-color: theme('colors.alter');
+        color: theme('colors.main');
+    }
+
+
+}
