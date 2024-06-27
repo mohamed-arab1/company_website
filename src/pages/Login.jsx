@@ -1,65 +1,61 @@
-import  "./auth.css";
 import LOGIN from "../assets/Illustration login.png";
-import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-// import Navbar from "../components/Navbar";
+import { useForm } from "react-hook-form";
+import InputAuth from "../elements/InputAuth";
 
-export default function Login() {
-    const {
-          register,
-        handleSubmit,
-        formState: { errors },
-      } = useForm();
-    
-    
+
+
+export default function Login() {   
+  const {
+    register,
+    handleSubmit,
+  formState: { errors },
+} = useForm();
+
     return (
         <>
-        {/* <Navbar></Navbar> */}
-       <div className="login" id="login">
-          <div className="content">
-            <div className="loginImg">
+       <div className="login " >
+          <div className="flex flex-wrap">
+            <div className="bg-[#F4F4F4] h-[100vh] w-[50%]">
               <img
                 src={LOGIN}
                 alt="img"
-                style={{
-                  width: "600px",
-                  height: "600px",
-                  marginLeft: "100px",
-                  marginTop: "55px",
-                }}
+               className="w-[600px] h-[600px] ml-[100px] mt-[55px]"
               ></img>
             </div>
             <div>
             <form
-              onSubmit={handleSubmit((data) => console.log(data))}
-              className="form"
+              onSubmit={handleSubmit}            
+
+              className="mt-[150px] ml-[100px] relative border-[#ECECF0] border-b-[2px]"
             >
                 <div>
-                  <h1 className="title-login">Sign In</h1>
-                  <p className="login-titlep">
+                  <h1 className="font-bold text-3xl text-[#002f69] mb-4">Login</h1>
+                  <p className="text-[#002f69] mb-[40px]">
                     Please fill your information below
                   </p>
                 </div>
-                <input {...register("email")} label="E-mail:"  required="E-mail is required" type="email"
+                <InputAuth register={register} label="E-mail:"  required="E-mail is required" type="email"
             name="email" placeholder="Enter your Email"
-             pattern={{ value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-            message: "Enter a valid email Ex:(email@example.com)"
-            }}/>
+       
+            />
                 {errors.email && <p>Please enter your email.</p>}
 
-                <input label="password:"  required="password is required" type="text"
-                minLength={{ value: 3, message: "password must be at least 3 characters" }} name="password" placeholder="Enter your password" />
+                <InputAuth register={register} label="password:"  required="password is required" type="text"
+                minLength={{ value: 3, message: "password must be at least 3 characters" }} name="password" placeholder="Enter your password" 
+               
+                />
                 
-                <input type="submit" className="button"/>
+                <button type="submit" className="w-[500px] h-[40px] bg-[#002f69] text-[#ffffff] font-bold block rounded-lg text-lg hover:bg-[#ffffff] hover:text-[#002f69]  hover:border-[#002f69] border cursor-pointer button mb-[30px]">Login</button>
 
             </form>
-            <div className="afterForm">
-            <p >Don’t an account you can Register here! <Link to='/registration' className="link">Sign Up</Link></p>
+            <div className="mt-[30px] flex items-center	justify-center	ml-[100px]">
+            <p >Don’t an account you can Register here! <Link to='/registration' className="text-[#002f69] ml-[130px] cursor-pointer">Register</Link></p>
 
               </div>
 
             </div>
-          
+
           </div>
       </div>
         </>

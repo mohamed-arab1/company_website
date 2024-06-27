@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Input = ({colStyle, type, label, placeholder, name, register, error, required, ...inputProps }) => {
   return (
     <div className={`flex items-center ${colStyle? ' flex-col items-baseline gap-2 ':'gap-2'} `}>
