@@ -1,6 +1,7 @@
 import React from 'react';
 
-const Input = ({colStyle, type, label, placeholder, name, register, error, required, ...inputProps }) => {
+const Input = ({style, type, placeholder, name, register, required, ...inputProps }) => {
+  const defaultStyle = `w-full rounded-2xl text-[#002f69] px-3 py-1`;
   return (
       <input 
         className={`${defaultStyle} ${style}`}
