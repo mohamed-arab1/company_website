@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
 
 const contactURL =  `${import.meta.env.VITE_BASE_URL}/contact`
+import { axios } from 'axios';
 
 export const onSubmit = async(data) => {
   try{
