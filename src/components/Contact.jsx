@@ -6,15 +6,10 @@ import Input from '../elements/Input';
 import { useForm } from 'react-hook-form';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-<<<<<<< HEAD
 import { onSubmit } from '../Api/contactApi';
-=======
-import { onSubmit } from '../api/contactApi';
->>>>>>> 71b4373528aa10dfd69eccc154080b211abbfea7
 
 export default function Contact() {
   const { register,handleSubmit,  formState: { errors } } = useForm()
-
   return (
     <section id='contact' className='bg-[#002f69] text-[#f5f4f4] pt-20 pb-10 min-h-[100vh]'>
       <section className='container mx-auto '>
@@ -27,7 +22,7 @@ export default function Contact() {
           <img src={contactSection}  width={556} height={518}  alt=""className='pt-3' />
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col justify-center px-3  text-[18px] '>
-            <div className="flex flex-wrap items-center gap-2">
+            <div className="flex flex-wrap items-center sm:gap-2">
               <Input  style='sm:w-fit focus:bg-gray-200 ' register={register} required="First name is required" type="text"
                minLength={{ value: 3, message: "Last name must be at least 3 characters" }} name="firstName" placeholder="Enter your first-name" />
               <div className='block sm:hidden'>{errors.firstName && <p className="text-red-500">{errors.firstName.message}</p>}</div>
@@ -50,7 +45,7 @@ export default function Contact() {
               {...register('message', { required: 'Comments are required',minLength:{value:10, message:"Must be 10 letters at least"} })}
               cols="30"
               rows="5"
-              className='outline-none focus:bg-gray-200 rounded-2xl p-2 text-[#002f69]'
+              className='outline-none focus:bg-gray-200 rounded-2xl p-2 mb-2 text-[#002f69]'
               placeholder="Enter your Comments here..."
             ></textarea>
              {errors.message && <p className="text-red-500">{errors.message.message}</p>}
