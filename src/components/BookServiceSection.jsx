@@ -8,7 +8,7 @@ export default function BookServiceSection({toggleColor, rtl, title, dec,img}) {
       <div className="flex flex-col text-center jb">
         <h2 className='text-[30px] '>{title}</h2>
         <p className='text-[16px] max-w-[500px] py-10 mx-auto'>{dec}</p>
-        <Button>Book Service</Button>
+        <Button style={rtl && '!bg-[#002f69] text-[#f5f4f4]  hover:!bg-[#f5f4f4] hover:!text-[#002f69] hover:!border-[#002f69] '}>Book Service</Button>
       </div>
       </div>
     </section>
