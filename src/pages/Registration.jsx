@@ -1,71 +1,70 @@
 import { Link } from "react-router-dom";
 import LOGIN from "../assets/Illustration login.png";
-import  "./auth.css";
 import { useForm } from "react-hook-form";
+import InputAuth from "../elements/InputAuth";
+
 
 
 export default function registration() {
 
   const {
           register,
-        handleSubmit,
+          handleSubmit,
         formState: { errors },
       } = useForm();
 
+   
   return (
     <>
-      <div className="register" id="register">
-          <div className="content">
-            <div className="loginImg">
+      <div className="register">
+          <div className="flex flex-wrap">
+            <div className="bg-[#F4F4F4] h-[100vh] w-[50%]">
               <img
                 src={LOGIN}
                 alt="img"
-                style={{
-                  width: "600px",
-                  height: "600px",
-                  marginLeft: "100px",
-                  marginTop: "55px",
-                }}
-              ></img>
+                className="w-[600px] h-[600px] ml-[100px] mt-[55px]"
+                ></img>
             </div>
             <div>
             <form
-              onSubmit={handleSubmit((data) => console.log(data))}
-              className="form"
+             onSubmit={handleSubmit}            
+             className="mt-[150px] ml-[100px] relative border-b-[2px] border-[#ECECF0] "
             >
                 <div>
-                  <h1 className="title-login">Register Now</h1>
-                  <p className="login-titlep">
+                  <h1 className="font-bold text-3xl text-[#002f69] mb-4">Register Now</h1>
+                  <p className="text-[#002f69] mb-[40px]">
                     Please fill your information below
                   </p>
                 </div>
-                <input {...register("Name")} label="Name:"  required="name is required" type="text"
-               minLength={{ value: 3, message: "Last name must be at least 3 characters" }} name="Name" placeholder="Enter your name" />
-                {errors.Name && <p>name is required.</p>}
-
-                <input {...register("email")} label="E-mail:"  required="E-mail is required" type="email"
+                <InputAuth register={register} required="name is required" type="text"
+               minLength={{ value: 3, message: "Last name must be at least 3 characters" }} name="Name" placeholder="Enter your name"
+               />
+                <InputAuth register={register} label="E-mail:"  required="E-mail is required" type="email"
             name="email" placeholder="Enter your Email"
             />
                 {errors.email && <p>Please enter your email.</p>}
 
                 
-                <input  {...register("password")} label="password:"  required="password is required" type="text"
-                minLength={{ value: 3, message: "password must be at least 3 characters" }} name="password" placeholder="Enter your password" />
-                {errors.password && <p>Please enter your password</p>}
+                <InputAuth  register={register} label="password:"  required="password is required" type="text"
+                minLength={{ value: 3, message: "password must be at least 3 characters" }} name="password" placeholder="Enter your password" 
+                />
+              
 
-                <input {...register("passwordCO")} label="password:"  required="password is required" type="text"
-                minLength={{ value: 3, message: "password must be at least 3 characters" }} name="password" placeholder="Enter your password Confirmation"  />
+                <InputAuth register={register} label="password:"  required="password is required" type="text"
+                minLength={{ value: 3, message: "password must be at least 3 characters" }} name="password" placeholder="Enter your password Confirmation" 
+              
+                />
 
-                <input type="submit" className="button"/>
+                 <button type="submit" className="w-[500px] h-[40px] bg-[#002f69] text-[#ffffff] font-bold block rounded-lg text-lg hover:bg-[#ffffff] hover:text-[#002f69] hover:border-[#002f69] border cursor-pointer	button mb-[30px]">Register</button>
 
               
             </form>
-            <div className="afterForm">
-            <p >Don’t an account you can Register here! <Link to='/registration' className="link">Sign Up</Link></p>
+            <div className="mt-[10px] flex items-center	justify-center	ml-[100px]">
+            <p >Already have an account you can login here! <Link to='/login' className="text-[#002f69] ml-[130px] cursor-pointer">Login</Link></p>
 
               </div>
             </div>
-           
+
           </div>
       </div>
       
