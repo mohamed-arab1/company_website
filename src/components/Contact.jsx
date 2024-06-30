@@ -83,7 +83,7 @@ export default function Contact() {
         pauseOnFocusLoss 
         draggable 
         pauseOnHover
-        className='text-white '/>
+        className='text-white mt-20 '/>
     </section>
   )
 }
