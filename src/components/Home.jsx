@@ -6,18 +6,18 @@ export default function Home(){
 
     return(
         <>
-        <section id="home" className="container mx-auto h-screen bg-[#002f69] ">
-        <dev   className="grid grid-cols-2 gap-2">
+        <section id="home" className=" w-full h-screen bg-[#002f69] ">
+        <dev   className=" home_grid  grid grid-cols-2 gap-2 mx-auto">
             <dev className=" mt-20 ml-10"> 
-                <img src={home_photo}  alt="home photo" />
+                <img src={home_photo} className="home_photo mx-auto" height={590}  width={620} alt="home photo" />
             </dev>
-            <dev className=" mt-20 ml-10 animate__animated animate__fadeIn">
+            <dev className=" mt-24 ml-10 animate__animated animate__fadeIn mx-auto">
             <dev className="flex items-center gap-3 ">
-            <img src={logo} alt=""  />
+            <img src={logo} alt="logo"  />
             <h3 className="text-white" >Vandemar Construction</h3>
             </dev>
 
-            <h2 className="text-[85px] text-white font-bold">
+            <h2 className="home_title text-[84px] text-white font-bold">
                 Let's make your vision come to life
             </h2>
             
