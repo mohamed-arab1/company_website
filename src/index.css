@@ -48,6 +48,47 @@
         color: theme('colors.main');
         border-top:1px solid theme('colors.main')
     }
+    
 
 
 }
+@media  (max-width :1026px) {
+    .home_title{
+      font-size: 40px;
+    }
+    .home_grid{
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .home_photo{
+      height: 300px;
+      width: 350px;
+    }
+    .btn{
+      padding: 10px;
+    }
+  }
+  @media (max-width : 655px) {
+    .test_sec{
+      grid-template-columns: repeat(1, 1fr);
+      padding-top: 2px;
+    }
+    .title_test{
+      font-size: 18px;
+      padding-top: 3px;
+    }
+    .high_test{
+      font-size: 18px;
+      padding-top: 2px;
+    }
+    .title_why{
+      font-size: 33px;
+    }
+    .why_content{
+      font-size: 17px;
+      margin-left: 10px;
+    }
+    .why_dist{
+      margin-left: 3px;  
+    }
+  }
