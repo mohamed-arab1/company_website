@@ -17,18 +17,18 @@ export default function registration() {
   return (
     <>
       <div className="register">
-          <div className="flex flex-wrap">
-            <div className="bg-[#F4F4F4] h-[100vh] w-[50%]">
+          <div className="flex">
+            <div className="hidden lg:flex bg-[#F4F4F4] h-[100vh] w-[50%]">
               <img
                 src={LOGIN}
                 alt="img"
-                className="w-[600px] h-[600px] ml-[100px] mt-[55px]"
+                className="w-[100%] h-[600px]  mt-[55px]"
                 ></img>
             </div>
-            <div>
+            <div className="mx-auto">
             <form
              onSubmit={handleSubmit}            
-             className="mt-[150px] ml-[100px] relative border-b-[2px] border-[#ECECF0] "
+             className="w-[50%] mt-[150px]  relative border-b-[2px] border-[#ECECF0] "
             >
                 <div>
                   <h1 className="font-bold text-3xl text-[#002f69] mb-4">Register Now</h1>
