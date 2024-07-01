@@ -25,7 +25,7 @@ export default function registration() {
                 className="w-[100%] h-[600px]  mt-[55px]"
                 ></img>
             </div>
-            <div className="mx-auto">
+            <div className="mx-auto px-[20px]">
             <form
              onSubmit={handleSubmit}            
              className="w-[50%] mt-[150px]  relative border-b-[2px] border-[#ECECF0] "
@@ -59,7 +59,7 @@ export default function registration() {
 
               
             </form>
-            <div className="mt-[10px] flex items-center	justify-center	ml-[100px]">
+            <div className="mt-[10px] flex items-center	justify-center">
             <p >Already have an account you can login here! <Link to='/login' className="text-[#002f69] ml-[130px] cursor-pointer">Login</Link></p>
 
               </div>

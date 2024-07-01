@@ -23,7 +23,7 @@ export default function Login() {
                className="w-[100%] h-[600px] mt-[55px]"
               ></img>
             </div>
-            <div className="mx-auto">
+            <div className="mx-auto px-[20px]">
             <form
               onSubmit={handleSubmit}            
 
@@ -49,7 +49,7 @@ export default function Login() {
                 <button type="submit" className="w-[500px] h-[40px] bg-[#002f69] text-[#ffffff] font-bold block rounded-lg text-lg hover:bg-[#ffffff] hover:text-[#002f69]  hover:border-[#002f69] border cursor-pointer button mb-[30px]">Login</button>
 
             </form>
-            <div className="mt-[30px] flex items-center	justify-center	ml-[100px]">
+            <div className="mt-[30px] flex items-center	justify-center">
             <p >Don’t an account you can Register here! <Link to='/registration' className="text-[#002f69] ml-[130px] cursor-pointer">Register</Link></p>
 
               </div>
