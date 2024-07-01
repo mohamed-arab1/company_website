@@ -15,19 +15,19 @@ export default function Login() {
     return (
         <>
        <div className="login " >
-          <div className="flex flex-wrap">
-            <div className="bg-[#F4F4F4] h-[100vh] w-[50%]">
+          <div className="flex">
+            <div className="hidden lg:flex bg-[#F4F4F4] h-[100vh] w-[50%]">
               <img
                 src={LOGIN}
                 alt="img"
-               className="w-[600px] h-[600px] ml-[100px] mt-[55px]"
+               className="w-[100%] h-[600px] mt-[55px]"
               ></img>
             </div>
-            <div>
+            <div className="mx-auto">
             <form
               onSubmit={handleSubmit}            
 
-              className="mt-[150px] ml-[100px] relative border-[#ECECF0] border-b-[2px]"
+              className="w-[50%] mt-[150px]  relative border-[#ECECF0] border-b-[2px]"
             >
                 <div>
                   <h1 className="font-bold text-3xl text-[#002f69] mb-4">Login</h1>
