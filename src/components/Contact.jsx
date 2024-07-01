@@ -45,7 +45,7 @@ export default function Contact() {
               {...register('message', { required: 'Comments are required',minLength:{value:10, message:"Must be 10 letters at least"} })}
               cols="30"
               rows="5"
-              className='outline-none focus:bg-gray-200 rounded-2xl p-2 mb-2 text-[#002f69]'
+              className='outline-none focus:bg-gray-200 rounded-lg p-2 mb-2 text-[#002f69]'
               placeholder="Enter your Comments here..."
             ></textarea>
              {errors.message && <p className="text-red-500">{errors.message.message}</p>}
