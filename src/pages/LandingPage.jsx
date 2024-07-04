@@ -8,7 +8,7 @@ import Services from "../components/Services"
 
 const LandingPage = () => {
   return (
-    <main>
+    <main className='overflow-hidden'>
            <Home/>
            <Why_us/>
            <Features />
