@@ -22,7 +22,7 @@ export default function BookServiceSection({toggleColor, rtl, title, dec, img}) 
         toggleColor
           ? "bg-[#002f69] text-[#f5f4f4] "
           : "text-[#002f69] bg-[#f5f4f4] "
-      } px-2 pt-20`}
+      } px-2 pt-20 overflow-hidden`}
     >
       <section className={`container mx-auto  flex  justify-center`}>
         <motion.div
