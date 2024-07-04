@@ -1,17 +1,32 @@
 import React from "react";
 import logo from '../assets/logo.png'
 import home_photo from "../assets/home.png"
-
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 export default function Home(){
-
+    const ref = useRef(null);
+    const inView = useInView(ref, { once: false });
     return(
-        <>
+        <motion.section
+        initial={{ opacity: 0}}
+        animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 0 }}
+        transition={{ duration: 0.6 }}
+        ref={ref}>
         <section id="home" className=" w-full h-screen bg-[#002f69] ">
         <div   className=" home_grid  grid grid-cols-2 gap-2 mx-auto">
-            <div className=" mt-20 ml-10"> 
+            <motion.div
+            initial={{ opacity: 0, x: -500 }}
+            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -500 }}
+            transition={{ duration: 1.3 }}
+            className=" mt-20 ml-10"> 
                 <img src={home_photo} className="home_photo mx-auto" height={570}  width={620} alt="home photo" />
-            </div>
-            <div className=" mt-24 ml-10 animate__animated animate__fadeIn mx-auto">
+            </motion.div>
+            <motion.div
+             ref={ref}
+             initial={{ opacity: 0, x: 500 }}
+             animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 500 }}
+             transition={{ duration: 1.3 }}
+             className=" mt-24 ml-10 animate__animated animate__fadeIn mx-auto">
             <div className="flex items-center gap-3 ">
             <img src={logo} alt="logo"  />
             <h3 className="text-white" >Vandemar Construction</h3>
@@ -22,10 +37,10 @@ export default function Home(){
             </h2>
             
             <button className="bg-[#387fd1] p-4 cursor-pointer btn font-bold text-[#ffffff]">Learn More</button>          
-            </div>
+            </motion.div>
         </div>
         </section>
-        </>
+        </motion.section>
 
     )
 }

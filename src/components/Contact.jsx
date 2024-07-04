@@ -7,21 +7,39 @@ import { useForm } from 'react-hook-form';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { onSubmit } from '../Api/contactApi';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 export default function Contact() {
   const { register,handleSubmit,  formState: { errors } } = useForm()
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: false });
   return (
-    <section id='contact' className='bg-[#002f69] text-[#f5f4f4] pt-20 pb-10 min-h-[100vh]'>
+    <motion.section
+    initial={{ opacity: 0}}
+    animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 0 }}
+    transition={{ duration: 0.6 }}
+    ref={ref}
+    id='contact' className='bg-[#002f69] text-[#f5f4f4] pt-20 pb-10 min-h-[100vh]'>
       <section className='container mx-auto '>
       <article className='flex justify-center gap-20 flex-wrap pb-2 '>
-        <div className="">
+        <motion.div 
+            initial={{ opacity: 0, x: -500 }}
+            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -500 }}
+            transition={{ duration: 1.3 }}
+            >
           <div className="flex items-center gap-3">
             <img src={logo} alt=""  />
             <h3>Vandemar Construction</h3>
           </div>
           <img src={contactSection}  width={556} height={518}  alt=""className='pt-3' />
-        </div>
-        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col justify-center px-3  text-[18px] '>
+        </motion.div>
+        <motion.form
+            ref={ref}
+            initial={{ opacity: 0, x: 500 }}
+            animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 500 }}
+            transition={{ duration: 1.3 }}
+        onSubmit={handleSubmit(onSubmit)} className='flex flex-col justify-center px-3  text-[18px] '>
             <div className="flex flex-wrap items-center sm:gap-2">
               <Input  style='sm:w-fit focus:bg-gray-200 ' register={register} required="First name is required" type="text"
                minLength={{ value: 3, message: "Last name must be at least 3 characters" }} name="firstName" placeholder="Enter your first-name" />
@@ -50,9 +68,14 @@ export default function Contact() {
             ></textarea>
              {errors.message && <p className="text-red-500">{errors.message.message}</p>}
             <Button type="Submit">Submit</Button>
-             </form>
+             </motion.form>
       </article>
-      <article className="flex flex-wrap lg:gap-36 justify-start px-2 sm:px-0 sm:justify-center">
+      <motion.article
+      ref={ref}
+                initial={{ opacity: 0, y: -100 }}
+                animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 100 }}
+                transition={{ duration: 1.3 }}
+      className="flex flex-wrap lg:gap-36 justify-start px-2 sm:px-0 sm:justify-center">
         <div className="flex flex-col gap-5">
             <h2 className='font-semibold text-[24px] '>Headquarters</h2>
             <p>123 Anywhere St.</p>
@@ -74,7 +97,7 @@ export default function Contact() {
           <FaInstagram size={30} className='hover:text-[#0087ff] cursor-pointer '/>
           </div>
           </div>
-        </article>
+        </motion.article>
       </section>
       <ToastContainer 
         autoClose={1000} 
@@ -84,6 +107,6 @@ export default function Contact() {
         draggable 
         pauseOnHover
         className='text-white mt-20 '/>
-    </section>
+    </motion.section>
   )
 }
