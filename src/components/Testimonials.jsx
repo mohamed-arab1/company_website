@@ -1,10 +1,26 @@
 import React from "react";
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 export default function Testimonials(){
+    const ref = useRef(null);
+    const inView = useInView(ref, { once: false });
     return(
-        <>
+        <motion.section
+        initial={{ opacity: 0}}
+        animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 0 }}
+        transition={{ duration: 0.6 }}
+        ref={ref}>
         <section id="testimonials" className=" w-full h-full bg-[#d9dcde]">
-            <h2 className=" text-[38px] font-bold text-[#002f69] pl-10 pt-4">Client Testimonials</h2>
-            <div className="grid grid-cols-3 test_sec gap-3 pt-20 pl-20 ">
+            <motion.h2
+                initial={{ opacity: 0, x: -500 }}
+                animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : -500 }}
+                transition={{ duration: 1.3 }}
+             className=" text-[38px] font-bold text-[#002f69] pl-10 pt-4">Client Testimonials</motion.h2>
+            <motion.div
+                initial={{ opacity: 0, y: 500 }}
+                animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 500 }}
+                transition={{ duration: 1.3 }}
+            className="grid grid-cols-3 test_sec gap-3 pt-20 pl-20 ">
                 <div>
                     <div className="h-1 w-20 bg-[#002f69]"> </div>
                     <p className="pt-10 title_test text-[#002f69] text-[20px]">
@@ -42,11 +58,11 @@ export default function Testimonials(){
                     </p>
                 </div>
 
-            </div>
+            </motion.div>
 
             
 
         </section>
-        </>
+        </motion.section>
     )
 }

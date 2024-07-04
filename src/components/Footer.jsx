@@ -9,7 +9,7 @@ export default function Footer() {
     <section className=' text-[#002f69] bg-[#f5f4f4] w-full px-2 py-10 '>
     <section className='container mx-auto  flex flex-wrap  justify-between'>
       <article className="flex flex-col gap-5 max-w-[500px]">
-        <h2 className='font-semibold text-[40px] hover:text-[#0087ff] cursor-pointer animate-pulse'>CSG</h2>
+        <Link to="/" className='font-semibold text-[40px] hover:text-[#0087ff] cursor-pointer animate-pulse'>CSG</Link>
         <p>
         Our booking services streamline scheduling and management for web,
         mobile, and desktop applications, providing seamless user experiences.
@@ -24,18 +24,18 @@ export default function Footer() {
         </div>
       </article>
       <article className="flex flex-col gap-5">
-        <h4 className='text-[20px] font-semibold'>Navication</h4>
+        <h4 className='text-[20px] font-semibold'>Navigation</h4>
         <Link to="/" className='hover:underline hover:text-[#0087ff] '>Home</Link>
-        <Link to="/" className='hover:underline hover:text-[#0087ff] '>Login</Link>
-        <Link to="/" className='hover:underline hover:text-[#0087ff] '>Book A Service</Link>
-        <Link to="/" className='hover:underline hover:text-[#0087ff] '>About</Link>
+        <Link to="/login" className='hover:underline hover:text-[#0087ff] '>Login</Link>
+        <Link to="/registration" className='hover:underline hover:text-[#0087ff] '>register</Link>
+        <Link to="/book-service" className='hover:underline hover:text-[#0087ff] '>Book A Service</Link>
         <Link to="/" className='hover:underline hover:text-[#0087ff] '>Contact</Link>
       </article>
       <article className="flex flex-col gap-5">
       <h4 className='text-[20px] font-semibold'>Services</h4>
-        <Link to="/" className='hover:underline hover:text-[#0087ff] '>Web Application</Link>
-        <Link to="/" className='hover:underline hover:text-[#0087ff] '>Mobile Application</Link>
-        <Link to="/" className='hover:underline hover:text-[#0087ff] '>Desktop Application</Link>
+        <Link to="/book-service" className='hover:underline hover:text-[#0087ff] '>Web Application</Link>
+        <Link to="/book-service" className='hover:underline hover:text-[#0087ff] '>Mobile Application</Link>
+        <Link to="/book-service" className='hover:underline hover:text-[#0087ff] '>Desktop Application</Link>
       </article>
       <article className="flex flex-col gap-5">
       <h4 className='text-[20px] font-semibold'>Contact Us</h4>
