@@ -4,8 +4,6 @@ import Cookie from "cookie-universal";
 
 const cookie =  Cookie();
 const token = cookie.get("companyWebsite");
-// console.log(token);
-
 
 export const Axios = axios.create({
     baseURL: baseURL ,
