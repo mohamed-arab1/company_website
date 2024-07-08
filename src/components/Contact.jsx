@@ -6,11 +6,8 @@ import Input from '../elements/Input';
 import { useForm } from 'react-hook-form';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-<<<<<<< HEAD
-import { onSubmit } from '../Api/contactApi';
-=======
 import { onSubmit } from '../api/contactApi';
->>>>>>> 71b4373528aa10dfd69eccc154080b211abbfea7
+// >>>>>>> 71b4373528aa10dfd69eccc154080b211abbfea7
 
 export default function Contact() {
   const { register,handleSubmit,  formState: { errors } } = useForm()
